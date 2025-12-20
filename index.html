@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ravi Kumar Dusi</title>
+
   <style>
     :root{
       --bg1:#0b1020;
@@ -13,34 +14,23 @@
       --muted:#94a3b8;
       --primary:#2563eb;
       --secondary:#334155;
-      --ring:#1d4ed8;
     }
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color:var(--text);
+      
       background:
-        radial-gradient(1200px 600px at 50% -10%, #1d4ed855, transparent 60%),
-        radial-gradient(900px 500px at 20% 110%, #22c55e22, transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+        linear-gradient(180deg, rgba(11,16,32,.88), rgba(15,23,42,.88)),
+        url("./circuit_img.png") center/cover no-repeat;
+
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:28px 14px;
-    }
-
-    /* CSS-only “circuit” vibe (very light) */
-    body::before{
-      content:"";
-      position:fixed; inset:0;
-      background:
-        linear-gradient(transparent 31px, rgba(148,163,184,.08) 32px),
-        linear-gradient(90deg, transparent 31px, rgba(148,163,184,.08) 32px);
-      background-size:32px 32px;
-      mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 70%);
-      pointer-events:none;
     }
 
     .wrap{
@@ -59,17 +49,29 @@
     }
 
     .avatar{
-      width:88px; height:88px;
+      width:96px;
+      height:96px;
       border-radius:999px;
       margin:0 auto 14px;
-      background: radial-gradient(circle at 30% 30%, #60a5fa, #1e3a8a);
-      border: 2px solid rgba(255,255,255,.10);
-      display:flex; align-items:center; justify-content:center;
+      border: 2px solid rgba(255,255,255,.14);
       overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at 30% 30%, #60a5fa, #1e3a8a);
     }
+    /* This ensures the face is centered */
     .avatar img{
-      width:100%; height:100%; object-fit:cover;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
       display:block;
+    }
+    .avatar .fallback{
+      font-weight:800;
+      font-size:26px;
+      color:#e5e7eb;
     }
 
     h1{
@@ -110,50 +112,45 @@
     a.secondary{background:var(--secondary)}
     a.btn:hover{filter:brightness(1.06)}
 
-    .row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
     .pill{
-      flex:1;
-      min-width:150px;
+      margin-top:14px;
+      display:inline-block;
       background: rgba(148,163,184,.10);
       border:1px solid rgba(148,163,184,.18);
-      padding:10px 12px;
+      padding:10px 16px;
       border-radius:999px;
       color:var(--muted);
       font-size:13px;
     }
 
     footer{
-      margin-top:14px;
+      margin-top:12px;
       color:rgba(148,163,184,.55);
       font-size:12px;
     }
 
-    /* tiny icon style */
     .ico{width:18px; height:18px; display:inline-block}
     .ico svg{width:18px; height:18px; fill:currentColor}
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
 
-      <!-- Optional photo:
-           Upload "profile.jpg" to the repo and uncomment the <img> line below -->
+      <!-- Upload your image to repo and keep this filename exactly -->
       <div class="avatar">
-        < <img src="./Ravi_profile_pic1-min.jpg" alt="Ravi Kumar Dusi" /> >
-        <!-- fallback initials -->
-        <span style="font-weight:800; font-size:26px; color:#e5e7eb;">RD</span>
+        <img src="./Ravi_profile_pic1-min.jpg" alt="Ravi Kumar Dusi"
+             onerror="this.remove(); document.querySelector('.fallback').style.display='block';">
+        <span class="fallback" style="display:none;">RD</span>
       </div>
 
       <h1>Ravi Kumar Dusi</h1>
       <p class="subtitle">Electronics Engineer · +49 17620555698</p>
 
       <div class="grid">
+
+        <!-- GitHub -->
         <a class="btn primary" href="https://github.com/ravid-k" target="_blank" rel="noopener">
           <span class="ico" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.86.5 12.47c0 5.24 3.44 9.68 8.2 11.25.6.12.82-.26.82-.58v-2.1c-3.34.74-4.04-1.66-4.04-1.66-.55-1.45-1.34-1.84-1.34-1.84-1.1-.78.08-.77.08-.77 1.22.09 1.86 1.28 1.86 1.28 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.76-1.66-2.66-.32-5.46-1.36-5.46-6.06 0-1.34.46-2.44 1.22-3.3-.12-.32-.53-1.62.12-3.38 0 0 1-.33 3.3 1.26a11.05 11.05 0 0 1 6 0c2.3-1.59 3.3-1.26 3.3-1.26.65 1.76.24 3.06.12 3.38.76.86 1.22 1.96 1.22 3.3 0 4.71-2.8 5.74-5.48 6.05.43.38.82 1.12.82 2.26v3.35c0 .32.22.7.83.58 4.76-1.57 8.2-6.01 8.2-11.25C23.5 5.86 18.27.5 12 .5z"/></svg>
@@ -161,27 +158,29 @@
           GitHub
         </a>
 
+        <!-- LinkedIn with icon -->
         <a class="btn primary" href="https://www.linkedin.com/in/ravi-dusi-b74534148/" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.45v6.3zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </span>
           LinkedIn
         </a>
 
-        <a class="btn secondary" href="./Ravi_CV_RES_compressed.pdf" target="_blank" rel="noopener">
-          
+        <!-- Resume -->
+        <a class="btn Primary" href="./Ravi_CV_RES_compressed.pdf" target="_blank" rel="noopener">
+          Resume (PDF)
         </a>
 
-        <a class="btn secondary" href="https://wa.me/+491783233921" target="_blank" rel="noopener">
+        <a class="btn secondary" href="https://wa.me/491783233921" target="_blank" rel="noopener">
           WhatsApp
         </a>
-        
+
         <a class="btn secondary" href="tel:+4917620555698">
           Call Me
         </a>
       </div>
 
-      <div class="row">
-        <div class="pill">NFC Business Card</div>
-        <div class="pill">Tap to connect</div>
-      </div>
+      <div class="pill">Ravi Dusi Portfolio</div>
 
       <footer>© <span id="y"></span> Ravi Kumar Dusi</footer>
     </div>
@@ -192,4 +191,3 @@
   </script>
 </body>
 </html>
-
