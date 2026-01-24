@@ -52,7 +52,7 @@
       width:96px;
       height:96px;
       border-radius:999px;
-      margin:0 auto 14px;
+      margin:0 auto 10px;
       border: 2px solid rgba(255,255,255,.14);
       overflow:hidden;
       display:flex;
@@ -73,40 +73,27 @@
       color:#e5e7eb;
     }
 
-    h1{
-      font-size:30px;
-      letter-spacing:.2px;
-      margin:6px 0 6px;
-    }
-
-    .subtitle{
-      margin:0 0 10px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.4;
-    }
-
-    /* Presentation mini-button */
+    /* About-me pill (Option A) */
     .deck-fab{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      margin:0 auto 14px;
+      margin:0 auto 12px;
       padding:10px 14px;
       border-radius:999px;
       text-decoration:none;
       color:var(--text);
-      background: rgba(148,163,184,.10);
-      border:1px solid rgba(148,163,184,.18);
+      background: rgba(37,99,235,.14);                /* Option B flavor: blue tint */
+      border:1px solid rgba(37,99,235,.30);           /* Option B flavor: blue border */
       width: fit-content;
       transition: transform .12s ease, filter .15s ease;
       user-select:none;
     }
-    .deck-fab:hover{ filter:brightness(1.06); transform: translateY(-1px); }
+    .deck-fab:hover{ filter:brightness(1.08); transform: translateY(-1px); }
     .deck-fab:active{ transform: translateY(0px) scale(.99); }
     .deck-fab img{
-      width:34px;
-      height:34px;
+      width:32px;
+      height:32px;
       object-fit:contain;
       border-radius:10px;
       animation: bob 1.8s ease-in-out infinite;
@@ -116,11 +103,24 @@
       50%{ transform: translateY(-3px); }
     }
     .deck-fab span{
-      font-weight:700;
+      font-weight:800;
       letter-spacing:.2px;
       font-size:14px;
       opacity:.95;
       white-space:nowrap;
+    }
+
+    h1{
+      font-size:30px;
+      letter-spacing:.2px;
+      margin:6px 0 6px;
+    }
+
+    .subtitle{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.4;
     }
 
     .grid{
@@ -180,15 +180,16 @@
         <span class="fallback" style="display:none;">RD</span>
       </div>
 
-      <h1>Ravi Kumar Dusi</h1>
-      <p class="subtitle">Electronics Engineer · +49 17620555698</p>
-
-      <!-- Cute Presentation icon (GIF preferred, PNG fallback) -->
-      <a class="deck-fab" href="./Ravi_presentation.pdf" target="_blank" rel="noopener" aria-label="Open my presentation PDF">
+      <!-- Option A placement: directly below avatar -->
+      <a class="deck-fab" href="./Ravi_presentation.pdf" target="_blank" rel="noopener" aria-label="Hola! About me (PDF)">
+        <!-- Put a GIF if you want: change src to ./presenter.gif and keep PNG fallback -->
         <img src="./Presentation_icon.png" alt=""
              onerror="this.onerror=null; this.src='./Presentation_icon.png';" />
-        <span>Presentation (PDF)</span>
+        <span>Hola! About me</span>
       </a>
+
+      <h1>Ravi Kumar Dusi</h1>
+      <p class="subtitle">Electronics Engineer · +49 17620555698</p>
 
       <div class="grid">
 
@@ -206,9 +207,9 @@
           LinkedIn
         </a>
 
-        <!-- Keep a normal Resume button too (same PDF) -->
+        <!-- Resume / CV (PDF) -->
         <a class="btn primary" href="./Ravi_presentation.pdf" target="_blank" rel="noopener">
-          Resume / Portfolio (PDF)
+          Resume / CV (PDF)
         </a>
 
         <a class="btn secondary" href="https://wa.me/491783233921" target="_blank" rel="noopener">
@@ -231,4 +232,3 @@
   </script>
 </body>
 </html>
-
