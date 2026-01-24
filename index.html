@@ -34,58 +34,25 @@
     .wrap{width:100%;max-width:520px;text-align:center;}
 
     .card{
-      position:relative;
       background:var(--card);
       border:1px solid rgba(148,163,184,.18);
       border-radius:18px;
       padding:28px 18px 18px;
       box-shadow:0 18px 50px rgba(0,0,0,.35);
       backdrop-filter:blur(10px);
-      overflow:hidden;
     }
 
-    /* ===== OPTION B — FLOATING BADGE ===== */
-    .about-float{
-      position:absolute;
-      top:-16px;
-      right:-18px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:14px;
-      background:linear-gradient(135deg,#2563eb,#1e40af);
-      border:1px solid rgba(255,255,255,.25);
-      box-shadow:0 10px 30px rgba(37,99,235,.55);
-      color:white;
-      text-decoration:none;
-      font-size:13px;
-      font-weight:800;
-      transform:rotate(3deg);
-      z-index:20;
-      transition:transform .2s ease, filter .2s ease;
-    }
-    .about-float:hover{
-      filter:brightness(1.15);
-      transform:rotate(0deg) translateY(-2px);
-    }
-    .about-float img{
-      width:26px;
-      height:26px;
-      object-fit:contain;
-      animation:bob 1.6s ease-in-out infinite;
-    }
-
-    @keyframes bob{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-3px)}
+    /* ===== AVATAR + FLOATING BADGE CONTAINER ===== */
+    .avatar-wrap{
+      position:relative;
+      width:96px;
+      margin:0 auto 14px;
     }
 
     .avatar{
       width:96px;
       height:96px;
       border-radius:999px;
-      margin:6px auto 12px;
       border:2px solid rgba(255,255,255,.14);
       overflow:hidden;
       display:flex;
@@ -100,6 +67,42 @@
       object-position:center;
     }
     .fallback{font-size:26px;font-weight:800}
+
+    /* ===== OPTION B – FIXED FLOAT BADGE ===== */
+    .about-float{
+      position:absolute;
+      top:-6px;
+      right:-14px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 12px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#2563eb,#1e40af);
+      border:1px solid rgba(255,255,255,.25);
+      box-shadow:0 8px 24px rgba(37,99,235,.5);
+      color:white;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:800;
+      z-index:10;
+      transition:transform .2s ease, filter .2s ease;
+    }
+    .about-float:hover{
+      filter:brightness(1.15);
+      transform:translateY(-2px);
+    }
+    .about-float img{
+      width:22px;
+      height:22px;
+      object-fit:contain;
+      animation:bob 1.6s ease-in-out infinite;
+    }
+
+    @keyframes bob{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-3px)}
+    }
 
     h1{font-size:30px;margin:6px 0}
     .subtitle{
@@ -148,44 +151,29 @@
   <div class="wrap">
     <div class="card">
 
-      <!-- FLOATING BADGE -->
-      <a class="about-float" href="./Ravi_presentation.pdf" target="_blank" rel="noopener">
-        <img src="./Presentation_icon.png" alt="">
-        👋 Hola!
-      </a>
+      <!-- Avatar + floating badge -->
+      <div class="avatar-wrap">
+        <a class="about-float" href="./Ravi_presentation.pdf" target="_blank" rel="noopener">
+          <img src="./Presentation_icon.png" alt="">
+          Hola!
+        </a>
 
-      <div class="avatar">
-        <img src="./Ravi_profile_pic1-min.jpg"
-             onerror="this.remove();this.nextElementSibling.style.display='block'">
-        <span class="fallback" style="display:none">RD</span>
+        <div class="avatar">
+          <img src="./Ravi_profile_pic1-min.jpg"
+               onerror="this.remove();this.nextElementSibling.style.display='block'">
+          <span class="fallback" style="display:none">RD</span>
+        </div>
       </div>
 
       <h1>Ravi Kumar Dusi</h1>
       <p class="subtitle">Electronics Engineer · +49 17620555698</p>
 
       <div class="grid">
-        <a class="btn primary" href="https://github.com/ravid-k" target="_blank">
-          <span class="ico">
-            <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.86.5 12.47c0 5.24 3.44 9.68 8.2 11.25.6.12.82-.26.82-.58v-2.1c-3.34.74-4.04-1.66-4.04-1.66-.55-1.45-1.34-1.84-1.34-1.84-1.1-.78.08-.77.08-.77 1.22.09 1.86 1.28 1.86 1.28 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.76-1.66-2.66-.32-5.46-1.36-5.46-6.06 0-1.34.46-2.44 1.22-3.3-.12-.32-.53-1.62.12-3.38 0 0 1-.33 3.3 1.26a11.05 11.05 0 0 1 6 0c2.3-1.59 3.3-1.26 3.3-1.26.65 1.76.24 3.06.12 3.38.76.86 1.22 1.96 1.22 3.3 0 4.71-2.8 5.74-5.48 6.05.43.38.82 1.12.82 2.26v3.35c0 .32.22.7.83.58 4.76-1.57 8.2-6.01 8.2-11.25C23.5 5.86 18.27.5 12 .5z"/></svg>
-          </span>
-          GitHub
-        </a>
-
-        <a class="btn primary" href="https://www.linkedin.com/in/ravi-dusi-b74534148/" target="_blank">
-          LinkedIn
-        </a>
-
-        <a class="btn primary" href="./Ravi_presentation.pdf" target="_blank">
-          Resume / CV (PDF)
-        </a>
-
-        <a class="btn secondary" href="https://wa.me/491783233921" target="_blank">
-          WhatsApp
-        </a>
-
-        <a class="btn secondary" href="tel:+4917620555698">
-          Call Me
-        </a>
+        <a class="btn primary" href="https://github.com/ravid-k" target="_blank">GitHub</a>
+        <a class="btn primary" href="https://www.linkedin.com/in/ravi-dusi-b74534148/" target="_blank">LinkedIn</a>
+        <a class="btn primary" href="./Ravi_presentation.pdf" target="_blank">Resume / CV (PDF)</a>
+        <a class="btn secondary" href="https://wa.me/491783233921" target="_blank">WhatsApp</a>
+        <a class="btn secondary" href="tel:+4917620555698">Call Me</a>
       </div>
 
       <div class="pill">Ravi Dusi Portfolio</div>
