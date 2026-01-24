@@ -1,188 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ravi Kumar Dusi</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ravi Kumar Dusi</title>
 
-  <style>
-    :root{
-      --bg1:#0b1020;
-      --bg2:#0f172a;
-      --card:#0b1224cc;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-      --primary:#2563eb;
-      --secondary:#334155;
-    }
-    *{box-sizing:border-box}
+<style>
+:root{
+  --bg1:#0b1020;
+  --bg2:#0f172a;
+  --card:#0b1224cc;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --primary:#2563eb;
+  --secondary:#334155;
+}
+*{box-sizing:border-box}
 
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        linear-gradient(180deg, rgba(11,16,32,.88), rgba(15,23,42,.88)),
-        url("./circuit_img.png") center/cover no-repeat;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px 14px;
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    linear-gradient(180deg, rgba(11,16,32,.88), rgba(15,23,42,.88)),
+    url("./circuit_img.png") center/cover no-repeat;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 14px;
+}
 
-    .wrap{width:100%;max-width:520px;text-align:center;}
+.wrap{max-width:520px;width:100%;text-align:center}
 
-    .card{
-      background:var(--card);
-      border:1px solid rgba(148,163,184,.18);
-      border-radius:18px;
-      padding:28px 18px 18px;
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-      backdrop-filter:blur(10px);
-    }
+.card{
+  background:var(--card);
+  border:1px solid rgba(148,163,184,.18);
+  border-radius:18px;
+  padding:28px 18px 18px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
 
-    /* ===== AVATAR + FLOATING BADGE CONTAINER ===== */
-    .avatar-wrap{
-      position:relative;
-      width:96px;
-      margin:0 auto 14px;
-    }
+/* ===== AVATAR ===== */
+.avatar-wrap{
+  position:relative;
+  width:96px;
+  height:96px;
+  margin:0 auto 16px;
+}
 
-    .avatar{
-      width:96px;
-      height:96px;
-      border-radius:999px;
-      border:2px solid rgba(255,255,255,.14);
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:radial-gradient(circle at 30% 30%, #60a5fa, #1e3a8a);
-    }
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-    }
-    .fallback{font-size:26px;font-weight:800}
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.15);
+  background:radial-gradient(circle at 30% 30%, #60a5fa, #1e3a8a);
+}
 
-    /* ===== OPTION B – FIXED FLOAT BADGE ===== */
-    .about-float{
-      position:absolute;
-      top:-6px;
-      right:-14px;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:8px 12px;
-      border-radius:14px;
-      background:linear-gradient(135deg,#2563eb,#1e40af);
-      border:1px solid rgba(255,255,255,.25);
-      box-shadow:0 8px 24px rgba(37,99,235,.5);
-      color:white;
-      text-decoration:none;
-      font-size:12px;
-      font-weight:800;
-      z-index:10;
-      transition:transform .2s ease, filter .2s ease;
-    }
-    .about-float:hover{
-      filter:brightness(1.15);
-      transform:translateY(-2px);
-    }
-    .about-float img{
-      width:22px;
-      height:22px;
-      object-fit:contain;
-      animation:bob 1.6s ease-in-out infinite;
-    }
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
-    @keyframes bob{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-3px)}
-    }
+/* ===== BADGE ATTACHED TO AVATAR ===== */
+.about-badge{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:white;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.3);
+  box-shadow:0 8px 20px rgba(37,99,235,.55);
+  animation:float 1.6s ease-in-out infinite;
+}
 
-    h1{font-size:30px;margin:6px 0}
-    .subtitle{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:16px;
-    }
+.about-badge img{
+  width:18px;
+  height:18px;
+}
 
-    .grid{display:grid;gap:12px}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
 
-    a.btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:14px;
-      border-radius:12px;
-      text-decoration:none;
-      color:white;
-      font-weight:600;
-      transition:transform .08s,filter .15s;
-    }
-    a.btn:hover{filter:brightness(1.06)}
-    a.btn:active{transform:scale(.99)}
-    .primary{background:var(--primary)}
-    .secondary{background:var(--secondary)}
+h1{font-size:30px;margin:6px 0}
+.subtitle{
+  color:var(--muted);
+  font-size:15px;
+  margin-bottom:18px;
+}
 
-    .ico svg{width:18px;height:18px;fill:white}
+/* ===== BUTTONS ===== */
+.grid{display:grid;gap:12px}
 
-    .pill{
-      margin-top:14px;
-      display:inline-block;
-      background:rgba(148,163,184,.1);
-      border:1px solid rgba(148,163,184,.18);
-      padding:10px 16px;
-      border-radius:999px;
-      font-size:13px;
-      color:var(--muted);
-    }
+.btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:14px;
+  border-radius:12px;
+  font-weight:600;
+  color:white;
+  text-decoration:none;
+}
+.primary{background:var(--primary)}
+.secondary{background:var(--secondary)}
 
-    footer{margin-top:12px;font-size:12px;color:rgba(148,163,184,.55)}
-  </style>
+.pill{
+  margin-top:14px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(148,163,184,.1);
+  border:1px solid rgba(148,163,184,.18);
+  font-size:13px;
+  color:var(--muted);
+}
+
+footer{margin-top:12px;font-size:12px;color:rgba(148,163,184,.55)}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
+<div class="wrap">
+<div class="card">
 
-      <!-- Avatar + floating badge -->
-      <div class="avatar-wrap">
-        <a class="about-float" href="./Ravi_presentation.pdf" target="_blank" rel="noopener">
-          <img src="./Presentation_icon.png" alt="">
-          Hola!
-        </a>
-
-        <div class="avatar">
-          <img src="./Ravi_profile_pic1-min.jpg"
-               onerror="this.remove();this.nextElementSibling.style.display='block'">
-          <span class="fallback" style="display:none">RD</span>
-        </div>
-      </div>
-
-      <h1>Ravi Kumar Dusi</h1>
-      <p class="subtitle">Electronics Engineer · +49 17620555698</p>
-
-      <div class="grid">
-        <a class="btn primary" href="https://github.com/ravid-k" target="_blank">GitHub</a>
-        <a class="btn primary" href="https://www.linkedin.com/in/ravi-dusi-b74534148/" target="_blank">LinkedIn</a>
-        <a class="btn primary" href="./Ravi_presentation.pdf" target="_blank">Resume / CV (PDF)</a>
-        <a class="btn secondary" href="https://wa.me/491783233921" target="_blank">WhatsApp</a>
-        <a class="btn secondary" href="tel:+4917620555698">Call Me</a>
-      </div>
-
-      <div class="pill">Ravi Dusi Portfolio</div>
-      <footer>© <span id="y"></span> Ravi Kumar Dusi</footer>
+  <div class="avatar-wrap">
+    <a class="about-badge" href="./Ravi_presentation.pdf" target="_blank">
+      <img src="./Presentation_icon.png" alt="">
+      Hola!
+    </a>
+    <div class="avatar">
+      <img src="./Ravi_profile_pic1-min.jpg" alt="Ravi Kumar Dusi">
     </div>
   </div>
 
-  <script>
-    document.getElementById("y").textContent=new Date().getFullYear();
-  </script>
+  <h1>Ravi Kumar Dusi</h1>
+  <p class="subtitle">Electronics Engineer · +49 17620555698</p>
+
+  <div class="grid">
+    <a class="btn primary" href="https://github.com/ravid-k" target="_blank">GitHub</a>
+    <a class="btn primary" href="https://www.linkedin.com/in/ravi-dusi-b74534148/" target="_blank">LinkedIn</a>
+    <a class="btn primary" href="./Ravi_presentation.pdf" target="_blank">Resume / CV (PDF)</a>
+    <a class="btn secondary" href="https://wa.me/491783233921" target="_blank">WhatsApp</a>
+    <a class="btn secondary" href="tel:+4917620555698">Call Me</a>
+  </div>
+
+  <div class="pill">Ravi Dusi Portfolio</div>
+  <footer>© 2026 Ravi Kumar Dusi</footer>
+
+</div>
+</div>
 </body>
 </html>
